@@ -54,11 +54,11 @@ public class FunctionalSTest
 
     private static final transient Logger LOGGER               = LoggerFactory.getLogger(FunctionalSTest.class);
 
-    public static final String            DEFAULT_CHROMEDRIVER = "/var/lib/chromedriver";                       // "C:\\chromedriver\\chromedriver.exe"
+    public static final String            DEFAULT_CHROMEDRIVER = "C:\\Develop\\webdriver\\chromedriver.exe";                       // "C:\\chromedriver\\chromedriver.exe"
     public static final String            DEFAULT_FIREFOXBIN   = "/usr/lib/firefox/firefox";                    // "C:\\Program Files\\Mozilla Firefox\\firefox.exe"
 
     public static final String            DEFAULT_HOST         = "localhost";
-    public static final String            DEFAULT_PORT         = "9090";
+    public static final String            DEFAULT_PORT         = "8080";
     public static final String            DEFAULT_URL          = "http://" + DEFAULT_HOST + ":" + DEFAULT_PORT;
     public static String                  DEFAULT_SITE         = DEFAULT_URL + "/bodgeit/";
     public static final String            PAGE_TO_LOAD_TIMEOUT = "30000";
@@ -68,7 +68,7 @@ public class FunctionalSTest
     private static String                 FIREFOX_BIN          = DEFAULT_FIREFOXBIN;
 
     private static DefaultSelenium        SELENIUM;
-    private static DesiredCapabilities    CAPABILITIES;
+    //private static DesiredCapabilities    CAPABILITIES;
 
     private static long                   DEPLOY_WAIT          = 20;
 
@@ -127,18 +127,18 @@ public class FunctionalSTest
         // FirefoxBinary ffb = new FirefoxBinary(new File(firefoxBin));
         // capabilities.setCapability(FirefoxDriver.BINARY, ffb);
 
-        CAPABILITIES = DesiredCapabilities.chrome();
-        ChromeOptions options = new ChromeOptions();
-        options.addArguments("no-sandbox");
+        //CAPABILITIES = DesiredCapabilities.chrome();
+        //ChromeOptions options = new ChromeOptions();
+        //options.addArguments("no-sandbox");
 
-        CAPABILITIES.setCapability(ChromeOptions.CAPABILITY, options);
-        CAPABILITIES.setJavascriptEnabled(true);
+        //CAPABILITIES.setCapability(ChromeOptions.CAPABILITY, options);
+        //CAPABILITIES.setJavascriptEnabled(true);
 
-        CAPABILITIES.setCapability(CapabilityType.PROXY, proxy);
+        //CAPABILITIES.setCapability(CapabilityType.PROXY, proxy);
 
         // You could use any webdriver implementation here
         // driver = new FirefoxDriver(capabilities);
-        DRIVER = new ChromeDriver(CAPABILITIES);
+        DRIVER = new ChromeDriver();
 
         DRIVER.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
         // driver.manage().timeouts().pageLoadTimeout(15, TimeUnit.SECONDS);
